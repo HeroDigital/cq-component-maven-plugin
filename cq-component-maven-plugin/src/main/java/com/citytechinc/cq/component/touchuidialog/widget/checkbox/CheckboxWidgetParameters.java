@@ -22,6 +22,7 @@ public class CheckboxWidgetParameters extends DefaultTouchUIWidgetParameters {
 	private String text;
 	private String title;
 	private boolean checked;
+	private String value;
 
 	public String getText() {
 		return text;
@@ -47,6 +48,14 @@ public class CheckboxWidgetParameters extends DefaultTouchUIWidgetParameters {
 
 	public void setChecked(boolean checked) {
 		this.checked = checked;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	@Override
