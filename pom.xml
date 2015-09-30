@@ -45,7 +45,7 @@
 		<developerConnection>scm:git:git@github.com:Citytechinc/cq-component-maven-plugin.git</developerConnection>
 	</scm>
 
-	<distributionManagement>
+	<!-- <distributionManagement>
 		<snapshotRepository>
 			<id>sonatype-nexus-staging</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -54,7 +54,23 @@
 			<id>sonatype-nexus-staging</id>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
-	</distributionManagement>
+	</distributionManagement> -->
+	<distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>hero-releases</id>
+            <name>Hero Repository</name>
+            <url>https://build.herodigital.com:8081/nexus/content/repositories/releases/</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>hero-snapshots</id>
+            <name>Hero Snapshots</name>
+            <url>https://build.herodigital.com:8081/nexus/content/repositories/snapshots/</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
 
 	<repositories>
 		<repository>
@@ -85,6 +101,9 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+						    <additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -100,7 +119,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
 				<version>1.4</version>
@@ -112,7 +131,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.7</version>
